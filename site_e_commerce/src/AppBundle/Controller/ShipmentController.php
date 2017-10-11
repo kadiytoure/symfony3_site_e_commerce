@@ -17,7 +17,7 @@ class ShipmentController extends Controller
     /**
      * Lists all shipment entities.
      *
-     * @Route("/", name="shipment_index")
+     * @Route("/shipment", name="shipment_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -60,7 +60,7 @@ class ShipmentController extends Controller
     /**
      * Finds and displays a shipment entity.
      *
-     * @Route("/{id}", name="shipment_show")
+     * @Route("/showshipment/{id}", name="shipment_show")
      * @Method("GET")
      */
     public function showAction(Shipment $shipment)
@@ -76,7 +76,7 @@ class ShipmentController extends Controller
     /**
      * Displays a form to edit an existing shipment entity.
      *
-     * @Route("/{id}/edit", name="shipment_edit")
+     * @Route("/editshipment/{id}/edit", name="shipment_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Shipment $shipment)
@@ -101,7 +101,7 @@ class ShipmentController extends Controller
     /**
      * Deletes a shipment entity.
      *
-     * @Route("/{id}", name="shipment_delete")
+     * @Route("/deleteshipment/{id}", name="shipment_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Shipment $shipment)

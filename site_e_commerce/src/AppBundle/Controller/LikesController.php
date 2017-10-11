@@ -17,7 +17,7 @@ class LikesController extends Controller
     /**
      * Lists all like entities.
      *
-     * @Route("/", name="likes_index")
+     * @Route("/like", name="likes_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -60,7 +60,7 @@ class LikesController extends Controller
     /**
      * Finds and displays a like entity.
      *
-     * @Route("/{id}", name="likes_show")
+     * @Route("/showlikes/{id}", name="likes_show")
      * @Method("GET")
      */
     public function showAction(Likes $like)
@@ -76,7 +76,7 @@ class LikesController extends Controller
     /**
      * Displays a form to edit an existing like entity.
      *
-     * @Route("/{id}/edit", name="likes_edit")
+     * @Route("/editlikes/{id}/edit", name="likes_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Likes $like)
@@ -101,7 +101,7 @@ class LikesController extends Controller
     /**
      * Deletes a like entity.
      *
-     * @Route("/{id}", name="likes_delete")
+     * @Route("/deletelikes/{id}", name="likes_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Likes $like)

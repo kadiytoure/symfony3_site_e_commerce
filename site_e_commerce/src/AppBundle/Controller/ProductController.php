@@ -17,7 +17,7 @@ class ProductController extends Controller
     /**
      * Lists all product entities.
      *
-     * @Route("/", name="product_index")
+     * @Route("/product", name="product_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -60,7 +60,7 @@ class ProductController extends Controller
     /**
      * Finds and displays a product entity.
      *
-     * @Route("/{id}", name="product_show")
+     * @Route("/showproduct/{id}", name="product_show")
      * @Method("GET")
      */
     public function showAction(Product $product)
@@ -76,7 +76,7 @@ class ProductController extends Controller
     /**
      * Displays a form to edit an existing product entity.
      *
-     * @Route("/{id}/edit", name="product_edit")
+     * @Route("/editproduct/{id}/edit", name="product_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Product $product)
@@ -101,7 +101,7 @@ class ProductController extends Controller
     /**
      * Deletes a product entity.
      *
-     * @Route("/{id}", name="product_delete")
+     * @Route("/deleteproduct/{id}", name="product_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Product $product)

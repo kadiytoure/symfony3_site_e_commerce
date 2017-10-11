@@ -17,7 +17,7 @@ class CustomerController extends Controller
     /**
      * Lists all customer entities.
      *
-     * @Route("/", name="customer_index")
+     * @Route("/custom", name="customer_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -60,7 +60,7 @@ class CustomerController extends Controller
     /**
      * Finds and displays a customer entity.
      *
-     * @Route("/{id}", name="customer_show")
+     * @Route("/showcustomer/{id}", name="customer_show")
      * @Method("GET")
      */
     public function showAction(Customer $customer)
@@ -76,7 +76,7 @@ class CustomerController extends Controller
     /**
      * Displays a form to edit an existing customer entity.
      *
-     * @Route("/{id}/edit", name="customer_edit")
+     * @Route("/editcustomer/{id}/edit", name="customer_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Customer $customer)
@@ -101,7 +101,7 @@ class CustomerController extends Controller
     /**
      * Deletes a customer entity.
      *
-     * @Route("/{id}", name="customer_delete")
+     * @Route("/deletecustomer/{id}", name="customer_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Customer $customer)

@@ -17,7 +17,7 @@ class CommandsController extends Controller
     /**
      * Lists all command entities.
      *
-     * @Route("/", name="commands_index")
+     * @Route("/command", name="commands_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -60,7 +60,7 @@ class CommandsController extends Controller
     /**
      * Finds and displays a command entity.
      *
-     * @Route("/{id}", name="commands_show")
+     * @Route("/showcommand/{id}", name="commands_show")
      * @Method("GET")
      */
     public function showAction(Commands $command)
@@ -76,7 +76,7 @@ class CommandsController extends Controller
     /**
      * Displays a form to edit an existing command entity.
      *
-     * @Route("/{id}/edit", name="commands_edit")
+     * @Route("/editcommand/{id}/edit", name="commands_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Commands $command)
@@ -101,7 +101,7 @@ class CommandsController extends Controller
     /**
      * Deletes a command entity.
      *
-     * @Route("/{id}", name="commands_delete")
+     * @Route("/deletecommand/{id}", name="commands_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Commands $command)

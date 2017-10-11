@@ -17,7 +17,7 @@ class CommentsController extends Controller
     /**
      * Lists all comment entities.
      *
-     * @Route("/", name="comments_index")
+     * @Route("/comment", name="comments_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -60,7 +60,7 @@ class CommentsController extends Controller
     /**
      * Finds and displays a comment entity.
      *
-     * @Route("/{id}", name="comments_show")
+     * @Route("/showcomment/{id}", name="comments_show")
      * @Method("GET")
      */
     public function showAction(Comments $comment)
@@ -76,7 +76,7 @@ class CommentsController extends Controller
     /**
      * Displays a form to edit an existing comment entity.
      *
-     * @Route("/{id}/edit", name="comments_edit")
+     * @Route("/editcomment/{id}/edit", name="comments_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Comments $comment)
@@ -101,7 +101,7 @@ class CommentsController extends Controller
     /**
      * Deletes a comment entity.
      *
-     * @Route("/{id}", name="comments_delete")
+     * @Route("/deletecomment/{id}", name="comments_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Comments $comment)
