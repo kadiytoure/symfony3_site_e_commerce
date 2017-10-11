@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Shipment</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ shipment.id }}</td>
+            </tr>
+            <tr>
+                <th>Numberlivraison</th>
+                <td>{{ shipment.numberlivraison }}</td>
+            </tr>
+            <tr>
+                <th>Dateshipment</th>
+                <td>{% if shipment.dateshipment %}{{ shipment.dateshipment|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Delivery</th>
+                <td>{% if shipment.delivery %}{{ shipment.delivery|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('shipment_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('shipment_edit', { 'id': shipment.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
