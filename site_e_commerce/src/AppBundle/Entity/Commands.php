@@ -166,5 +166,11 @@ class Commands
  * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="commands")
  */
  private $commandline;
+ 
+/**
+ * @ORM\ManyToOne(targetEntity="customer", inversedBy="commands")
+ * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+ */
+ private $customer;
 }
 

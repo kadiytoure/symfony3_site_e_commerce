@@ -130,5 +130,15 @@ class User
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Comments", mappedBy="user")
+     */
+    private $comments;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Likes", mappedBy="user")
+     */
+    private $likes;
 }
 

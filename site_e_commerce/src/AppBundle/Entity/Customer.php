@@ -254,5 +254,10 @@ class Customer
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Commands", mappedBy="customer")
+     */
+    private $commands;
 }
 

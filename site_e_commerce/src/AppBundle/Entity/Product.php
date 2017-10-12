@@ -233,5 +233,10 @@ class Product
      * @ORM\OneToMany(targetEntity="Comments", mappedBy="product")
      */
     private $comments;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Likes", mappedBy="product")
+     */
+    private $likes;
 }
 
