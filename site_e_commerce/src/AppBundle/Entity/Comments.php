@@ -124,5 +124,10 @@ class Comments
     {
         return $this->content;
     }
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="comments")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
 }
 

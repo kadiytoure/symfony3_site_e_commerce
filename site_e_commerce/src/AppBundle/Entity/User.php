@@ -124,5 +124,11 @@ class User
     {
         return $this->password;
     }
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Customer")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     */
+    private $customer;
 }
 

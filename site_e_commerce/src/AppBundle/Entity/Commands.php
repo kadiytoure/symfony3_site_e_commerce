@@ -48,8 +48,7 @@ class Commands
      * @ORM\Column(name="cart", type="boolean")
      */
     private $cart;
-
-
+    
     /**
      * Get id
      *
@@ -155,5 +154,17 @@ class Commands
     {
         return $this->cart;
     }
+    
+/**
+ * One Command has One Shipment.
+ * @ORM\OneToOne(targetEntity="Shipment")
+ * @ORM\JoinColumn(name="shipment_id", referencedColumnName="id")
+ */
+    private $shipment;
+    
+/**
+ * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="commands")
+ */
+ private $commandline;
 }
 

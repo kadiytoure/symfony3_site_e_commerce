@@ -63,7 +63,6 @@ class Product
      */
     private $quantity;
 
-
     /**
      * Get id
      *
@@ -217,5 +216,22 @@ class Product
     {
         return $this->quantity;
     }
+    
+    /**
+     * Product has got an unique Category
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="products")
+     */
+    private $commandline;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Comments", mappedBy="product")
+     */
+    private $comments;
 }
 

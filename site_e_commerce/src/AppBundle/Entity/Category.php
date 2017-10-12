@@ -49,7 +49,6 @@ class Category
      */
     private $description;
 
-
     /**
      * Get id
      *
@@ -155,5 +154,11 @@ class Category
     {
         return $this->description;
     }
+    
+    /**
+     * One Categroy can be link to severals Product
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    private $products;
 }
 
