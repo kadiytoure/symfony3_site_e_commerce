@@ -133,5 +133,28 @@ class Shipment
         return $this->delivery;
     }
 
-}
 
+    /**
+     * Set commands
+     *
+     * @param \AppBundle\Entity\Commands $commands
+     *
+     * @return Shipment
+     */
+    public function setCommands(\AppBundle\Entity\Commands $commands = null)
+    {
+        $this->commands = $commands;
+
+        return $this;
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \AppBundle\Entity\Commands
+     */
+    public function getCommands()
+    {
+        return $this->commands;
+    }
+}

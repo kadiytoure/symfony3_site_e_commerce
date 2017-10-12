@@ -106,5 +106,52 @@ class CommandLine
     }
     
 
-}
 
+    /**
+     * Set commands
+     *
+     * @param \AppBundle\Entity\Commands $commands
+     *
+     * @return CommandLine
+     */
+    public function setCommands(\AppBundle\Entity\Commands $commands = null)
+    {
+        $this->commands = $commands;
+
+        return $this;
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \AppBundle\Entity\Commands
+     */
+    public function getCommands()
+    {
+        return $this->commands;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return CommandLine
+     */
+    public function setProduct(\AppBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \AppBundle\Entity\Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

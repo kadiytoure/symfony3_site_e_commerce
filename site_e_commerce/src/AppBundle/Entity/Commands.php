@@ -173,5 +173,93 @@ class Commands
     }
     
 
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commandline = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set shipment
+     *
+     * @param \AppBundle\Entity\Shipment $shipment
+     *
+     * @return Commands
+     */
+    public function setShipment(\AppBundle\Entity\Shipment $shipment = null)
+    {
+        $this->shipment = $shipment;
+
+        return $this;
+    }
+
+    /**
+     * Get shipment
+     *
+     * @return \AppBundle\Entity\Shipment
+     */
+    public function getShipment()
+    {
+        return $this->shipment;
+    }
+
+    /**
+     * Add commandline
+     *
+     * @param \AppBundle\Entity\CommandLine $commandline
+     *
+     * @return Commands
+     */
+    public function addCommandline(\AppBundle\Entity\CommandLine $commandline)
+    {
+        $this->commandline[] = $commandline;
+
+        return $this;
+    }
+
+    /**
+     * Remove commandline
+     *
+     * @param \AppBundle\Entity\CommandLine $commandline
+     */
+    public function removeCommandline(\AppBundle\Entity\CommandLine $commandline)
+    {
+        $this->commandline->removeElement($commandline);
+    }
+
+    /**
+     * Get commandline
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommandline()
+    {
+        return $this->commandline;
+    }
+
+    /**
+     * Set customer
+     *
+     * @param \AppBundle\Entity\Customer $customer
+     *
+     * @return Commands
+     */
+    public function setCustomer(\AppBundle\Entity\Customer $customer = null)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \AppBundle\Entity\Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+}

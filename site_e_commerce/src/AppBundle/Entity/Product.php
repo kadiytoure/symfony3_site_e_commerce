@@ -239,5 +239,139 @@ class Product
         return $this->quantity;
     }
     
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commandline = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->likes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Product
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Add commandline
+     *
+     * @param \AppBundle\Entity\CommandLine $commandline
+     *
+     * @return Product
+     */
+    public function addCommandline(\AppBundle\Entity\CommandLine $commandline)
+    {
+        $this->commandline[] = $commandline;
+
+        return $this;
+    }
+
+    /**
+     * Remove commandline
+     *
+     * @param \AppBundle\Entity\CommandLine $commandline
+     */
+    public function removeCommandline(\AppBundle\Entity\CommandLine $commandline)
+    {
+        $this->commandline->removeElement($commandline);
+    }
+
+    /**
+     * Get commandline
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommandline()
+    {
+        return $this->commandline;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Entity\Comments $comment
+     *
+     * @return Product
+     */
+    public function addComment(\AppBundle\Entity\Comments $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Entity\Comments $comment
+     */
+    public function removeComment(\AppBundle\Entity\Comments $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add like
+     *
+     * @param \AppBundle\Entity\Likes $like
+     *
+     * @return Product
+     */
+    public function addLike(\AppBundle\Entity\Likes $like)
+    {
+        $this->likes[] = $like;
+
+        return $this;
+    }
+
+    /**
+     * Remove like
+     *
+     * @param \AppBundle\Entity\Likes $like
+     */
+    public function removeLike(\AppBundle\Entity\Likes $like)
+    {
+        $this->likes->removeElement($like);
+    }
+
+    /**
+     * Get likes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+}

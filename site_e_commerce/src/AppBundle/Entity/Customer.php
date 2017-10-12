@@ -260,5 +260,69 @@ class Customer
     }
     
 
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commands = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Customer
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Add command
+     *
+     * @param \AppBundle\Entity\Commands $command
+     *
+     * @return Customer
+     */
+    public function addCommand(\AppBundle\Entity\Commands $command)
+    {
+        $this->commands[] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Remove command
+     *
+     * @param \AppBundle\Entity\Commands $command
+     */
+    public function removeCommand(\AppBundle\Entity\Commands $command)
+    {
+        $this->commands->removeElement($command);
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommands()
+    {
+        return $this->commands;
+    }
+}
