@@ -41,7 +41,18 @@ class Likes
      * @ORM\Column(name="date", type="date")
      */
     private $date;
-
+        
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="likes")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="likes")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * Get id
@@ -124,17 +135,6 @@ class Likes
     {
         return $this->date;
     }
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="likes")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     */
-    private $product;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="likes")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
+
 }
 

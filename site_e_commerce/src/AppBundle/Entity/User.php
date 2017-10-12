@@ -41,6 +41,22 @@ class User
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Customer")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     */
+    private $customer;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Comments", mappedBy="user")
+     */
+    private $comments;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Likes", mappedBy="user")
+     */
+    private $likes;
 
 
     /**
@@ -125,20 +141,6 @@ class User
         return $this->password;
     }
     
-    /**
-     * @ORM\OneToOne(targetEntity="Customer")
-     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
-     */
-    private $customer;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Comments", mappedBy="user")
-     */
-    private $comments;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Likes", mappedBy="user")
-     */
-    private $likes;
+
 }
 

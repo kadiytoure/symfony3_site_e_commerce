@@ -70,6 +70,16 @@ class Customer
      */
     private $numbercustommer;
 
+    /**
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Commands", mappedBy="customer")
+     */
+    private $commands;
 
     /**
      * Get id
@@ -249,15 +259,6 @@ class Customer
         return $this->numbercustommer;
     }
     
-    /**
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Commands", mappedBy="customer")
-     */
-    private $commands;
+
 }
 

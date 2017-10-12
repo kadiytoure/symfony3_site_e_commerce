@@ -50,6 +50,23 @@ class Commands
     private $cart;
     
     /**
+     * @ORM\OneToOne(targetEntity="Shipment")
+     * @ORM\JoinColumn(name="shipment_id", referencedColumnName="id")
+     */
+    private $shipment;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="commands")
+     */
+    private $commandline;
+ 
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="commands")
+     * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
+     */
+    private $customer;
+    
+    /**
      * Get id
      *
      * @return int
@@ -155,22 +172,6 @@ class Commands
         return $this->cart;
     }
     
-/**
- * One Command has One Shipment.
- * @ORM\OneToOne(targetEntity="Shipment")
- * @ORM\JoinColumn(name="shipment_id", referencedColumnName="id")
- */
-    private $shipment;
-    
-/**
- * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="commands")
- */
- private $commandline;
- 
-/**
- * @ORM\ManyToOne(targetEntity="customer", inversedBy="commands")
- * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
- */
- private $customer;
+
 }
 

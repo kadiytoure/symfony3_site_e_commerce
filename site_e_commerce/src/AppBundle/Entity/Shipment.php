@@ -42,6 +42,15 @@ class Shipment
      */
     private $delivery;
     
+        
+    /**
+     * One Shipment has One Command.
+     * @ORM\OneToOne(targetEntity="Commands")
+     * @ORM\JoinColumn(name="commands_id", referencedColumnName="id")
+     */
+    
+    private $commands;
+    
     /**
      * Get id
      *
@@ -123,13 +132,6 @@ class Shipment
     {
         return $this->delivery;
     }
-    
-    /**
-     * One Shipment has One Command.
-     * @ORM\OneToOne(targetEntity="Commands")
-     * @ORM\JoinColumn(name="commands_id", referencedColumnName="id")
-     */
-    
-    private $commands;
+
 }
 

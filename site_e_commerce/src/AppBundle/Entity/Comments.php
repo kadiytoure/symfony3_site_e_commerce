@@ -42,6 +42,17 @@ class Comments
      */
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="comments")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * Get id
@@ -125,16 +136,6 @@ class Comments
         return $this->content;
     }
     
-    /**
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="comments")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     */
-    private $product;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
+ 
 }
 

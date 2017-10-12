@@ -35,6 +35,17 @@ class CommandLine
      */
     private $price;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Commands", inversedBy="commandline")
+     * @ORM\JoinColumn(name="commands_id", referencedColumnName="id")
+     */
+    private $commands;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="commandline")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
 
     /**
      * Get id
@@ -94,16 +105,6 @@ class CommandLine
         return $this->price;
     }
     
-    /**
-     * @ORM\ManyToOne(targetEntity="Commands", inversedBy="commandline")
-     * @ORM\JoinColumn(name="commands_id", referencedColumnName="id")
-     */
-    private $commands;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="commandline")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     */
-    private $products;
+
 }
 

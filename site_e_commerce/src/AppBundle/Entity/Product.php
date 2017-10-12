@@ -62,6 +62,28 @@ class Product
      * @ORM\Column(name="quantity", type="integer")
      */
     private $quantity;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="product")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="product")
+     */
+    private $commandline;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Comments", mappedBy="product")
+     */
+    private $comments;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Likes", mappedBy="product")
+     */
+    private $likes;
+
 
     /**
      * Get id
@@ -217,26 +239,5 @@ class Product
         return $this->quantity;
     }
     
-    /**
-     * Product has got an unique Category
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     */
-    private $category;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="CommandLine", mappedBy="products")
-     */
-    private $commandline;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Comments", mappedBy="product")
-     */
-    private $comments;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Likes", mappedBy="product")
-     */
-    private $likes;
 }
 
