@@ -24,13 +24,6 @@ class Likes
     /**
      * @var int
      *
-     * @ORM\Column(name="userid", type="integer")
-     */
-    private $userid;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="productid", type="integer")
      */
     private $productid;

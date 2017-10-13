@@ -22,13 +22,6 @@ class User
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="iduser", type="integer")
-     */
-    private $iduser;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255)

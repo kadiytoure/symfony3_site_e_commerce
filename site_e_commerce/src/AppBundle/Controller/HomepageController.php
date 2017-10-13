@@ -10,23 +10,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Homepage controller.
  *
- * @Route("homepage")
  */
-
 class HomepageController extends Controller
 {
      /**
      * Lists all category entities.
      *
-     * @Route("/home", name = "home_index")
+     * @Route("/", name = "home_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $products = $em->getRepository('AppBundle:product')->findAll();
+        $products = $em->getRepository('AppBundle:Product')->findAll();
         
-        return $this->render('product/index.html.twig', array( 
+        return $this->render('index.html.twig', array( 
             'products' => $products,
         ));
     }

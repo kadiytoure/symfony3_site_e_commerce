@@ -22,13 +22,6 @@ class Product
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idproduct", type="integer")
-     */
-    private $idproduct;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -93,30 +86,6 @@ class Product
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idproduct
-     *
-     * @param integer $idproduct
-     *
-     * @return Product
-     */
-    public function setIdproduct($idproduct)
-    {
-        $this->idproduct = $idproduct;
-
-        return $this;
-    }
-
-    /**
-     * Get idproduct
-     *
-     * @return int
-     */
-    public function getIdproduct()
-    {
-        return $this->idproduct;
     }
 
     /**

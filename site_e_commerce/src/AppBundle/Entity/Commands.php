@@ -31,13 +31,6 @@ class Commands
     /**
      * @var int
      *
-     * @ORM\Column(name="idcommand", type="integer")
-     */
-    private $idcommand;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="numbercommand", type="integer")
      */
     private $numbercommand;

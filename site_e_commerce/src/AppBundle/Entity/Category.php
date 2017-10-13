@@ -21,12 +21,7 @@ class Category
      */
     private $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idcategory", type="integer")
-     */
-    private $idcategory;
+   
 
     /**
      * @var string

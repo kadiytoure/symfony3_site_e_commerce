@@ -21,12 +21,6 @@ class Customer
      */
     private $id;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idclient", type="integer")
-     */
-    private $idclient;
 
     /**
      * @var string
