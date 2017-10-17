@@ -3,6 +3,17 @@ body {
     background-color: gray;
 }
 
-ul li {
-    text-decoration: none;
+header {
+    margin: 0px;
+    background-color: green;
+}
+
+footer {
+    margin: 0px;
+    background-color: orange;
+}
+
+nav {
+    margin: 0px;
+    background-color: blue;
 }
