@@ -1,19 +1,74 @@
 body {
     margin: 0px;
+    padding: 0px;
     background-color: gray;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+h1{
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
 }
 
 header {
+    height: 19vh;
     margin: 0px;
+    height: 109px;
     background-color: green;
 }
 
 footer {
     margin: 0px;
     background-color: orange;
+    height: 70px;
+    text-align: center;
 }
 
 nav {
     margin: 0px;
-    background-color: blue;
+    background-color: brown;
+    font-weight: bold;
+    display: flex;
+    padding: 21px 31px;
+    flex-direction: row;
 }
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    float: left;
+    margin-right: 17px;
+    padding-left: 71px;
+    text-align: center;
+    font-weight: bold;
+        
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: center;
+}
+
+
+
+
+
+
+
