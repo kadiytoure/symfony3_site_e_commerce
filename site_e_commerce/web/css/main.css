@@ -1,7 +1,7 @@
 body {
-    margin: 0px;
-    padding: 0px;
-    background-color: gray;
+   margin: 0px;
+   padding: 0px;
+   background-color: gray;
    min-height: 100vh;
    display: flex;
    flex-direction: column;
@@ -57,6 +57,7 @@ table {
 a:hover {
     text-decoration: none;
     color: #fff;
+    font-weight: bold;
 }
 
 ul {
