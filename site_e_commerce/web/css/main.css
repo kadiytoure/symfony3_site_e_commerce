@@ -67,6 +67,11 @@ ul {
     flex-direction: center;
 }
 
+.img-fluid {
+    border-radius: 2em;
+}
+
+
 
 
 

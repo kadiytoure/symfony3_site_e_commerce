@@ -1,11 +1,11 @@
+
 <nav>
 <ul>
-    <li><a href="{{ path('home_index') }}"> Home </a></li>
-    <li><a href="{{ path('home_index') }}"> Savons </a></li>
-    <li><a href="{{ path('home_index') }}"> Soins Cheveux </a></li>
-    <li><a href="{{ path('home_index') }}"> Soins Visage et corps </a></li>
-    <li><a href="{{ path('home_index') }}"> Gammes / Coffrets </a></li>
-    <li><a href="{{ path('home_index') }}"> À propos </a></li>
+    <li><a href="{{ path('home_index') }}">Accueil</a></li>
+    {% for category in categories %}
+    <li><a href="">{{ category.name }}</a></li>
+    {% endfor %}
+    <li><a href="">A propos</a></li>
 </ul>
 </nav>
     

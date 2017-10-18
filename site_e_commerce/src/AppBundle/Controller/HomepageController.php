@@ -23,9 +23,11 @@ class HomepageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->getRepository('AppBundle:Product')->findAll();
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
         
         return $this->render('index.html.twig', array( 
             'products' => $products,
+            'categories' => $categories,
         ));
     }
 }

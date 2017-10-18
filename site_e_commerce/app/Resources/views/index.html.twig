@@ -3,29 +3,13 @@
 {% block content %} 
     <h1>Products list</h1>
     
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Photo</th>
-                <th>Quantity</th>
-             
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in products %}
-                <tr>
-                    <td>{{ product.id }}</td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.description }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.photo }}</td>
-                    <td>{{ product.quantity }}</td>
-                </tr>     
-            {% endfor %}
-        </tbody>
-    </table>
+    {% for product in products %}
+        <section class="col-md-4 centered">
+            {{ product.name }}
+            {{ product.description }}
+            {{ product.price }}
+            <img src="{{ product.photo }}" width="200px" class="img-fluid img-responsive" alt="photo" />
+        </section>
+    {% endfor %}
+    
 {% endblock %}
