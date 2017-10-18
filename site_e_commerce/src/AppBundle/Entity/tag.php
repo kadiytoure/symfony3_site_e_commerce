@@ -27,8 +27,13 @@ class tag
      * @ORM\Column(name="tag", type="string", length=255)
      */
     private $tag;
-
-
+    
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Product", mappedBy="tag")
+     */
+    private $product;
+    
     /**
      * Get id
      *
@@ -62,5 +67,45 @@ class tag
     {
         return $this->tag;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add product
+     *
+     * @param \AppBundle\Entity\Product $product
+     *
+     * @return tag
+     */
+    public function addProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \AppBundle\Entity\Product $product
+     */
+    public function removeProduct(\AppBundle\Entity\Product $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

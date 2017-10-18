@@ -57,6 +57,12 @@ class Product
     private $quantity;
     
     /**
+     * @ORM\ManyToMany(targetEntity="tag", inversedBy="product")
+     * @ORM\JoinTable(name="product_tag")
+     */
+    private $tag;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="product")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
@@ -213,6 +219,7 @@ class Product
      */
     public function __construct()
     {
+        $this->tag = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commandline = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
         $this->likes = new \Doctrine\Common\Collections\ArrayCollection();
@@ -342,5 +349,39 @@ class Product
     public function getLikes()
     {
         return $this->likes;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \AppBundle\Entity\tag $tag
+     *
+     * @return Product
+     */
+    public function addTag(\AppBundle\Entity\tag $tag)
+    {
+        $this->tag[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \AppBundle\Entity\tag $tag
+     */
+    public function removeTag(\AppBundle\Entity\tag $tag)
+    {
+        $this->tag->removeElement($tag);
+    }
+
+    /**
+     * Get tag
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTag()
+    {
+        return $this->tag;
     }
 }
