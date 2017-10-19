@@ -48,7 +48,7 @@ class Category
      * One Categroy can be link to severals Product
      * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
      */
-    private $product;
+    private $products;
 
     /**
      * Get id
@@ -161,7 +161,7 @@ class Category
      */
     public function __construct()
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -173,7 +173,7 @@ class Category
      */
     public function addProduct(\AppBundle\Entity\Product $product)
     {
-        $this->product[] = $product;
+        $this->products[] = $product;
 
         return $this;
     }
@@ -185,7 +185,7 @@ class Category
      */
     public function removeProduct(\AppBundle\Entity\Product $product)
     {
-        $this->product->removeElement($product);
+        $this->products->removeElement($product);
     }
 
     /**
@@ -193,8 +193,8 @@ class Category
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->product;
+        return $this->products;
     }
 }

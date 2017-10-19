@@ -30,4 +30,41 @@ class HomepageController extends Controller
             'categories' => $categories,
         ));
     }
+    
+    /**
+     * A propos
+     *
+     * @Route("/a-propos/", name = "front_apropos")
+     * @Method("GET")
+     */
+    public function aproposAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
+        
+        return $this->render('front/apropos.html.twig', array( 
+            'categories' => $categories,
+        ));
+    }
+    
+    /**
+     * 
+     * @Route("/cat/{id}", name = "list_by_category")
+     */
+    public function categAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('AppBundle:Category');
+        
+        $categories = $repo->findAll();
+        
+        $cat = $repo->findOneById($id);
+        
+        return $this->render('rubriques/categ.html.twig', array(
+            'categories' => $categories,
+            'cat' => $cat
+        ));
+    }
+    
+    
 }

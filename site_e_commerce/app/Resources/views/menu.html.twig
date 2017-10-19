@@ -3,9 +3,9 @@
 <ul>
     <li><a href="{{ path('home_index') }}">Accueil</a></li>
     {% for category in categories %}
-    <li><a href="">{{ category.name }}</a></li>
+    <li><a href="{{ path('list_by_category', { 'id' : category.id }) }}">{{ category.name }}</a></li>
     {% endfor %}
-    <li><a href="">A propos</a></li>
+    <li><a href="{{ path('front_apropos') }}">A propos</a></li>
 </ul>
 </nav>
     
