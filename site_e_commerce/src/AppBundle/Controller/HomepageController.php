@@ -49,16 +49,16 @@ class HomepageController extends Controller
     
     /**
      * 
-     * @Route("/cat/{id}", name = "list_by_category")
+     * @Route("/cat/{name}", name = "list_by_category")
      */
-    public function categAction($id)
+    public function categAction($name)
     {
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('AppBundle:Category');
         
         $categories = $repo->findAll();
         
-        $cat = $repo->findOneById($id);
+        $cat = $repo->findOneByName($name);
         
         return $this->render('rubriques/categ.html.twig', array(
             'categories' => $categories,
