@@ -66,7 +66,28 @@ class HomepageController extends Controller
         ));
     }
     
+    /**
+     * 
+     * @Route("/prods/{id}", name="action_add_rack")
+     * @Method("GET")
+     */
     
+    public function productAction($id)
+    {
+       $em = $this->getDoctrine()->getManager();
+       $repo = $em->getRepository('AppBundle:Product');
+       
+       $product = $repo->find($id);
+       
+       $user =  $this->$id->generate('homepage');//get user
+       
+       //$cat = $repo->findOneById($id);
+       
+       return $this->render('index.html.twig', array(
+           'products' => $product,
+           //'cat' => $cat   
+       ));
+    }
     
     
 }

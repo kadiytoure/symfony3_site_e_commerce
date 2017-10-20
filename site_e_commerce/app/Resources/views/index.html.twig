@@ -19,6 +19,7 @@
                     </div>
                         
                         {# lien vers l'url de mise au panier #}
+                    <li><a href=" {{ path('action_add_rack', { 'id': product.id }) }}">Panier</a></li>
                 </div>
             </div>  
         {% endfor %}
