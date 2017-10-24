@@ -6,6 +6,7 @@ use AppBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Commands;
 
 
 /**
@@ -82,7 +83,7 @@ class HomepageController extends Controller
        
        $user = $this->get('security.token_storage')->getToken()->getUser();//get user
        $commands = new Commands(); //objet Command
-       $commands->setProduct($product);
+       $commands->setProduct($product); // à revoir
        $commands->setUser($user);
        $commands->persist($commands);
        $commands->flush();
