@@ -80,8 +80,9 @@ class HomepageController extends Controller
        $product = $repo->find($id);
        
        $user = $this->get('security.token_storage')->getToken()->getUser();//get user
-             
+       $object = new Command();
        
+      
        return $this->render('index.html.twig', array(
            'products' => $product,
            //'cat' => $cat   
