@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
+
 /**
  * Homepage controller.
  *
@@ -80,16 +81,16 @@ class HomepageController extends Controller
        $product = $repo->find($id);
        
        $user = $this->get('security.token_storage')->getToken()->getUser();//get user
-       $command = new Command(); //objet Command
-       $command->setProduct($product);
-       $command->setUser($user);
-       $manager->persist($command);
-       $manager->flush();
-      
+       $commands = new Commands(); //objet Command
+       $commands->setProduct($product);
+       $commands->setUser($user);
+       $commands->persist($commands);
+       $commands->flush();
        return $this->render('index.html.twig', array(
            'products' => $product,
            //'cat' => $cat   
        ));
+       
     }
     
     
