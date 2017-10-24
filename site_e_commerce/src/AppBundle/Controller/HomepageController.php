@@ -94,5 +94,20 @@ class HomepageController extends Controller
        
     }
     
+    /**
+     * 
+     * @Route("/rack/{id}", name="command")
+     * @Method("GET")
+     */
+    
+    public function commandsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commands = $em->getRepository('AppBundle:Commands')->findAll();
+        
+        return $this->render('rack.html.twig', array(
+            'commands' => $commands,
+        ));
+    }
     
 }
