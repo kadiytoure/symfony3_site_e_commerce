@@ -79,9 +79,8 @@ class HomepageController extends Controller
        
        $product = $repo->find($id);
        
-       $user =  $this->get('fos_user.registration.form.factory');//get user
-       
-       //$cat = $repo->findOneById($id);
+       $user = $this->get('security.token_storage')->getToken()->getUser();//get user
+             
        
        return $this->render('index.html.twig', array(
            'products' => $product,
