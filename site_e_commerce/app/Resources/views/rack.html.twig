@@ -3,11 +3,12 @@
 {% block content %}
     <h1>Rack</h1>
     {% for command in commands %}
-        {{ command.datecommand }}
-        {{ command.numbercommand }}
-        {{ command.cart }}
-        {{ command.shipment }}
-        {{ command.commandline }}
-        {{ command.customer }}
+    <tr>
+        <td>{{ command.attribut}}</td>
+        <td>{{ command.datecommand }}</td>
+        <td>{{ command.numbercommand }}</td>
+        <td>{{ command.cart }}</td>
+        // boucle affichant éléments
+    </tr>
     {% endfor %}
 {% endblock %}

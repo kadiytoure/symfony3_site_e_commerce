@@ -121,11 +121,13 @@ class HomepageController extends Controller
     public function commandsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $commands = $em->getRepository('AppBundle:Commands')->findAll();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $commands = $em->getRepository('AppBundle:Commands')->findOneByUser($user);
         
         return $this->render('rack.html.twig', array(
             'command' => $commands,
         ));
     }
+
     
 }
