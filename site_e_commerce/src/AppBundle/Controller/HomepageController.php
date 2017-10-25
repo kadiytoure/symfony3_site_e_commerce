@@ -77,19 +77,37 @@ class HomepageController extends Controller
     public function productAction($id)
     {
        $em = $this->getDoctrine()->getManager();
-       $repo = $em->getRepository('AppBundle:Product');
        
-       $product = $repo->find($id);
+       $product = $em->getRepository('AppBundle:Product')->find($id);
        
        $user = $this->get('security.token_storage')->getToken()->getUser();//get user
+       
+       //$customer findByUser
+       $customer = $em->getRepository('AppBundle:Customer')->findByUser($user);
+       
+       
        $commands = new Commands(); //objet Command
-       $commands->setProduct($product); // à revoir
-       $commands->setUser($user);
-       $commands->persist($commands);
-       $commands->flush();
+       //command set customer
+       $commands->setCustomer($customer);
+       
+       $commandline = new CommandLine();
+       $commands->addCommandLine($commandline);
+       
+       $commandline->setProduct($product); 
+       //commandLine set commands
+       $commandline->setCommands($commands);
+       // commandLine set quantity
+       // commandLine set price  = product get price
+       $commandline->setQuantity(1);
+       $commandline->setPrice($product->getPrice());
+       
+       $em->persist($commandline);
+       $em->persist($commands);
+       $em->flush();
+       
        return $this->render('index.html.twig', array(
            'products' => $product,
-           //'cat' => $cat   
+         
        ));
        
     }
@@ -106,7 +124,7 @@ class HomepageController extends Controller
         $commands = $em->getRepository('AppBundle:Commands')->findAll();
         
         return $this->render('rack.html.twig', array(
-            'commands' => $commands,
+            'command' => $commands,
         ));
     }
     

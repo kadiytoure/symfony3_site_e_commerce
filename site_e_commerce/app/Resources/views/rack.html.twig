@@ -3,6 +3,11 @@
 {% block content %}
     <h1>Rack</h1>
     {% for command in commands %}
-        {{ command.datecommand}}
+        {{ command.datecommand }}
+        {{ command.numbercommand }}
+        {{ command.cart }}
+        {{ command.shipment }}
+        {{ command.commandline }}
+        {{ command.customer }}
     {% endfor %}
 {% endblock %}
