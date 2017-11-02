@@ -2,13 +2,14 @@
 
 {% block content %}
     <h1>Rack</h1>
-    {% for command in commands %}
     <tr>
-        <td>{{ command.attribut}}</td>
-        <td>{{ command.datecommand }}</td>
+        <td>{{ command.datecommand|date('d-m-Y') }}</td>
         <td>{{ command.numbercommand }}</td>
         <td>{{ command.cart }}</td>
-        // boucle affichant éléments
+        // boucle affichant éléments commandLine command.commandLines
+        {% for command in commandLines %}
+            {{ quantity.CommandLine }}
+            {{ price.CommandLine }}
+        {% endfor%}
     </tr>
-    {% endfor %}
 {% endblock %}

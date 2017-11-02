@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Category;
+use AppBundle\Entity\CommandLine;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -83,10 +84,13 @@ class HomepageController extends Controller
        $user = $this->get('security.token_storage')->getToken()->getUser();//get user
        
        //$customer findByUser
-       $customer = $em->getRepository('AppBundle:Customer')->findByUser($user);
+       $customer = $em->getRepository('AppBundle:Customer')->findOneByUser($user);
        
        
        $commands = new Commands(); //objet Command
+       $commands->setNumbercommand(md5(uniqid()));
+       $commands->setDatecommand(new \DateTime('now'));
+       $commands->setCart(true);
        //command set customer
        $commands->setCustomer($customer);
        
@@ -105,6 +109,8 @@ class HomepageController extends Controller
        $em->persist($commands);
        $em->flush();
        
+       return $this->redirectToRoute('command');
+       
        return $this->render('index.html.twig', array(
            'products' => $product,
          
@@ -114,7 +120,7 @@ class HomepageController extends Controller
     
     /**
      * 
-     * @Route("/rack/{id}", name="command")
+     * @Route("/rack/", name="command")
      * @Method("GET")
      */
     
@@ -122,10 +128,15 @@ class HomepageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.token_storage')->getToken()->getUser();
-        $commands = $em->getRepository('AppBundle:Commands')->findOneByUser($user);
+        $customer = $em->getRepository('AppBundle:Customer')->findOneByUser($user);
+        
+        $command = $em->getRepository('AppBundle:Commands')->findOneByCustomer($customer);
+        
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
         
         return $this->render('rack.html.twig', array(
-            'command' => $commands,
+            'categories' => $categories,
+            'command' => $command,
         ));
     }
 
