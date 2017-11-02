@@ -139,6 +139,16 @@ class HomepageController extends Controller
             'command' => $command,
         ));
     }
+    
+    public function validcommandAction(Request $request)
+    {
+       $commands = new Commands();
+       $commands->setCommands;
+       $commands->setDueDate(new \DateTime('tomorrow'));
+       
+       $form = $this->createFormBuilder($commands)
+              ->add
+    }
 
     
 }
