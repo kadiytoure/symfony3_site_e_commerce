@@ -46,10 +46,17 @@ class Customer
     /**
      * @var string
      *
-     * @ORM\Column(name="phonenumber", type="string", length=255)
+     * @ORM\Column(name="phonenumber", type="string", length=20)
      */
     private $phonenumber;
 
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="zipcode", type="string", length=51)
+     */
+    private $zipcode;
+    
     /**
      * @var string
      *
@@ -107,6 +114,30 @@ class Customer
     public function getIdclient()
     {
         return $this->idclient;
+    }
+    
+    /**
+     * Get zipcode
+     * 
+     * @return string
+     */
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+    
+    /**
+     * Set zipcode
+     * 
+     * @param string $zipcode
+     * 
+     * @return Customer
+     */
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+        
+        return $this;
     }
 
     /**

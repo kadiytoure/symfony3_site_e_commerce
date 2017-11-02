@@ -7,9 +7,12 @@
         <td>{{ command.numbercommand }}</td>
         <td>{{ command.cart }}</td>
         // boucle affichant éléments commandLine command.commandLines
-        {% for command in commandLines %}
-            {{ quantity.CommandLine }}
-            {{ price.CommandLine }}
-        {% endfor%}
+        {% for line in command.commandLine %}
+        <br>
+            {{ line.product.name }}
+            {{ line.product.photo }}
+            {{ line.quantity}}
+            {{ line.price}}€
+        {% endfor %}
     </tr>
 {% endblock %}
