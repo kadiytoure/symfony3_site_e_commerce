@@ -20,8 +20,14 @@ class Customer
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="town", type="string", length=255)
+     */
+    private $town;
+    
     /**
      * @var string
      *
@@ -114,6 +120,30 @@ class Customer
     public function getIdclient()
     {
         return $this->idclient;
+    }
+    
+    /**
+     * Get town
+     * 
+     * @return string
+     */
+    public function getTown()
+    {
+        return $this->town;
+    }
+    
+    /**
+     * Set town
+     * 
+     * @param string $town
+     * 
+     * @return Customer
+     */
+    public function setTown($town)
+    {
+        $this->town = $town;
+        
+        return $this;
     }
     
     /**

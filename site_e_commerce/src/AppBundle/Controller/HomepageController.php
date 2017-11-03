@@ -8,7 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Commands;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Homepage controller.
@@ -140,15 +141,37 @@ class HomepageController extends Controller
         ));
     }
     
+    /**
+     * 
+     * @Route("/valid/", name="commands")
+     * @Method("GET")
+     */
     public function validcommandAction(Request $request)
     {
-       $commands = new Commands();
-       $commands->setCommands;
-       $commands->setDueDate(new \DateTime('tomorrow'));
+       $em = $this->getDoctrine()->getManager();
+       $user = $this->get('security.token_storage')->getToken()->getUser();
+       $customer = $em->getRepository('AppBundle:Customer')->findOneByUser($user);
+   
        
-       $form = $this->createFormBuilder($commands)
-              ->add
+       $form = $this->createFormBuilder($customer)
+              ->add('name', TextType::class)
+              ->add('adress', TextType::class)
+              ->add('town', TextType::class)
+              ->add('zipcode', TextType::class)
+              ->add('save', SubmitType::class, array('label' => 'Send'))
+              ->getForm();
+       
+       $form->handleRequest($request);
+       
+       if ($form->isSubmitted() && $form->isValid()) {
+           $commands = $form->getData();
+           // persist and flush custumer
+           return $this->redirectToRoute('valid_commands');
+       }
+      return $this->render('validcommand.html.twig', array(
+           'form' => $form->createView(),
+       ));
     }
-
+ 
     
 }
