@@ -33,6 +33,8 @@ class HomepageController extends Controller
             'products' => $products,
             'categories' => $categories,
         ));
+        
+        
     }
     
     /**
@@ -143,15 +145,15 @@ class HomepageController extends Controller
     
     /**
      * 
-     * @Route("/valid/", name="commands")
-     * @Method("GET")
+     * @Route("/valid/", name="customs")
      */
-    public function validcommandAction(Request $request)
+    public function validcustomerAction(Request $request)
     {
        $em = $this->getDoctrine()->getManager();
        $user = $this->get('security.token_storage')->getToken()->getUser();
        $customer = $em->getRepository('AppBundle:Customer')->findOneByUser($user);
-   
+       
+      $categories = $em->getRepository('AppBundle:Category')->findAll();
        
        $form = $this->createFormBuilder($customer)
               ->add('name', TextType::class)
@@ -164,14 +166,18 @@ class HomepageController extends Controller
        $form->handleRequest($request);
        
        if ($form->isSubmitted() && $form->isValid()) {
-           $commands = $form->getData();
            // persist and flush custumer
-           return $this->redirectToRoute('valid_commands');
+           $em->persist($customer);
+           $em->flush();
+           return $this->redirectToRoute('valid_customs');
        }
       return $this->render('validcommand.html.twig', array(
            'form' => $form->createView(),
+          'categories' => $categories,
        ));
     }
+    
+    
  
     
 }
