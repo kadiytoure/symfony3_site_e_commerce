@@ -169,14 +169,30 @@ class HomepageController extends Controller
            // persist and flush custumer
            $em->persist($customer);
            $em->flush();
-           return $this->redirectToRoute('valid_customs');
+           return $this->redirectToRoute('command_success');
        }
       return $this->render('validcommand.html.twig', array(
            'form' => $form->createView(),
-          'categories' => $categories,
+           'categories' => $categories,
        ));
     }
     
+    /**
+     * 
+     * @Route("/command/", name="command_success")
+     * 
+     */
+    public function validcommandcustomAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
+      
+      return $this->render('successcommand.html.twig', array(
+          //'form' => $form->createView(),
+          'categories' => $categories,
+          
+      ));
+    }
     
  
     
