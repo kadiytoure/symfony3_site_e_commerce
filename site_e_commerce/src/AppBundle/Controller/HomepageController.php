@@ -194,6 +194,23 @@ class HomepageController extends Controller
       ));
     }
     
+    /**
+     * 
+     * @Route("/product/{id}", name="show_product")
+     * 
+     */
+    public function displayproductAction($id)
+    {
+       $em = $this->getDoctrine()->getManager();
+       $categories = $em->getRepository('AppBundle:Category')->findAll();
+       $product = $em->getRepository('AppBundle:Product')->find($id);
+       
+       return $this->render('displayproduct.html.twig', array(
+           'products' => $product,
+           'categories' => $categories,
+       ));
+       
+    }
  
     
 }

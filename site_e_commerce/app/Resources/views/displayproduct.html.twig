@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Selected Product</h1>
+    {% for product in products %}
+    {{ product.name }}
+    {{ product.price }}
+    {{ product.photo }}
+    {{ product.description }}
+    <li><a href=" {{ path('show_product', { 'id': product.id }) }}">Product Selected</a></li>
+    {% endfor %}
+{% endblock content %}
