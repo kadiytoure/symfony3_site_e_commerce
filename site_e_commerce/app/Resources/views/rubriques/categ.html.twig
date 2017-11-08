@@ -17,6 +17,8 @@
                             {{ product.description }} 
                         </p>
                     </div>
+                    <li><a href=" {{ path('action_add_rack', { 'id': product.id }) }}">Panier</a></li>
+                    <li><a href=" {{ path('show_product', { 'id': product.id }) }}">Voir le produit</a></li>
                 </div>
             </div>  
         {% endfor %}

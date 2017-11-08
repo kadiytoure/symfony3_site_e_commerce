@@ -206,7 +206,7 @@ class HomepageController extends Controller
        $product = $em->getRepository('AppBundle:Product')->find($id);
        
        return $this->render('displayproduct.html.twig', array(
-           'products' => $product,
+           'product' => $product,
            'categories' => $categories,
        ));
        
